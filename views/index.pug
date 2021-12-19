@@ -1,0 +1,9 @@
+extends master-view
+
+block content
+section.section-description
+  div.row 
+    if locals.user
+      h4 You're logged in!
+    else
+      h4 You are not logged in! Please #[a(href="/login") Log In] to continue.

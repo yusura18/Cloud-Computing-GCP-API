@@ -1,0 +1,31 @@
+extends master-view
+
+block content
+  header.header
+    div.header-text-box
+      h1.heading-primary My Portfolio Project
+  section.section-description
+    div.row
+      div.description
+        div.description_info
+          div.u-margin-bottom-medium
+            h3.heading-tertiary Welcome
+            div.form__group
+              p.site_info 
+                | This web app is an assignment for CS493 Cloud Development at Oregon State University.<br /><br />
+                | This assignment requires Auth0 for authorization and authentication to use a REST API built on GAE. Click Log In button to sign in or create a new user account. <br />
+                | You will be redirected to the User Info page. The user ID and JWT values displayed after logging in will allow you to create, update, and delete boats using <br />
+                | my REST API. You can also assign loads to your boat. Loads can be created, updated, and deleted without authorization.<br /><br />
+                | API URLS:<br />Boats: https://final-moorbrea.wl.r.appspot.com/boats<br />Loads: https://final-moorbrea.wl.r.appspot.com/loads 
+  section.section-description
+    div.row
+      div.u-margin-bottom-medium    
+        if locals.user
+          h4 You're logged in!
+          div.form__group
+            a(id="userBtn" href="/userinfo").btn.btn-white.btn--animated User Info
+            a(id="logoutBtn" href="/logout").btn.btn-white.btn--animated Log Out
+        else
+          h4 You are not logged in! Please Log in to continue.
+          div.form__group
+            a(id="loginBtn" href="/login").btn.btn-white.btn--animated Log In

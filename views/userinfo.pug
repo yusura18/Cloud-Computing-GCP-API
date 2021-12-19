@@ -1,0 +1,26 @@
+extends master-view
+
+block content
+  header.header
+    div.header-text-box
+      h1.heading-primary User Information:
+  section.user-results
+    div.row
+      div.results
+        table.user__table
+          thead
+            tr.table__header
+              th(name="userEmailLabel" id="userEmailLabel") User Email
+              th(name="userIDLabel" id="userIDLabel") User ID
+              th(name="userJWTLabel" id="userJWTLabel") User JWT
+          tbody
+            tr
+              td(name="userEmail" id="userEmail") #{user.profile.displayName}
+              td(name="userID" id="userID") #{user.profile.user_id}
+              td(name="userJWT" id ="userJWT") #{user.extraParams.id_token}
+  section.section-description
+    div.row
+      div.u-margin-bottom-medium    
+        if locals.user
+          div.form__group
+            a(id="logoutBtn" href="/logout").btn.btn-white.btn--animated Log Out
